@@ -1,0 +1,39 @@
+name: CI
+
+env:
+  QT_VERSION:     "5.12.7"
+  MINGW_VERSION:  "win64_mingw73"
+  MINGW_PATH:     "mingw73_64"
+  
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Download FontName plugin for NSIS
+      uses: carlosperate/download-file-action@v1.0.3
+      with:
+        file-url: https://nsis.sourceforge.io/mediawiki/images/7/78/FontName-0.7.zip
+        file-name: FontName-0.7.zip
+        location: ${{ github.workspace }}
+
+    - name: Install FontName plugin for NSIS
+      run: |
+        7z x "${{ github.workspace }}/FontName-0.7.zip"
+        ${{ github.workspace }}/FontName-0.7.exe
+
+   - name: Have a look
+      run: |
+        ls 
+        ls "${{ github.workspace }}"
+
+    - name: Run installer
+      uses: joncloud/makensis-action@v2
+      with:
+        arguments: "/V3"
+        script-file: "garderobe.nsi"
+        additional-plugin-paths: ${{ github.workspace }}/NSIS_Plugins/Plugins/
+
+
