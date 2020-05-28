@@ -30,10 +30,10 @@ jobs:
         ls "${{ github.workspace }}"
 
     - name: Run installer
-      uses: joncloud/makensis-action@v2
+      uses: joncloud/makensis-action@v1
       with:
         arguments: "/V3"
-        script-file: "garderobe.nsi"
+        script-file: "test.nsi"
         additional-plugin-paths: ${{ github.workspace }}/NSIS_Plugins/Plugins/
 
 
