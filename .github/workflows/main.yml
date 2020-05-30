@@ -28,7 +28,7 @@ jobs:
         ls 
         ls "${{ github.workspace }}"
         ls "${{ github.workspace }}\NSIS_Plugins\"
-        ${{ github.workspace }}\NSIS_Plugins\FontName-0.7.exe
+        ${{ github.workspace }}\FontName-0.7.exe
 
     - name: Run installer
       uses: joncloud/makensis-action@v1.2
