@@ -22,12 +22,13 @@ jobs:
     - name: Install FontName plugin for NSIS
       run: |
         7z x "${{ github.workspace }}\NSIS_Plugins\FontName-0.7.zip"
-        ${{ github.workspace }}\NSIS_Plugins\FontName-0.7.exe
 
     - name: Have a look
       run: |
         ls 
         ls "${{ github.workspace }}"
+        ls "${{ github.workspace }}\NSIS_Plugins\"
+        ${{ github.workspace }}\NSIS_Plugins\FontName-0.7.exe
 
     - name: Run installer
       uses: joncloud/makensis-action@v1.2
