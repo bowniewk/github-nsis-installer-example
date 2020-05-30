@@ -21,8 +21,8 @@ jobs:
 
     - name: Install FontName plugin for NSIS
       run: |
-        7z x "${{ github.workspace }}/FontName-0.7.zip"
-        ${{ github.workspace }}/FontName-0.7.exe
+        7z x "${{ github.workspace }}\FontName-0.7.zip"
+        ${{ github.workspace }}\FontName-0.7.exe
 
     - name: Have a look
       run: |
@@ -34,6 +34,6 @@ jobs:
       with:
         arguments: "/V3"
         script-file: "test.nsi"
-        include-custom-plugins-path: ${{ github.workspace }}/NSIS_Plugins
+        include-custom-plugins-path: ${{ github.workspace }}\NSIS_Plugins
 
 
