@@ -37,6 +37,6 @@ jobs:
       with:
         arguments: "/V3"
         script-file: "${{github.workspace}}/test.nsi"
-        include-custom-plugins-path: ${{ github.workspace }}/NSIS_Plugins
+        #include-custom-plugins-path: ${{ github.workspace }}/NSIS_Plugins
 
 
